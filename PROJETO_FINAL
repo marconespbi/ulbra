@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Estoque </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .login-container h1, .menu-container h1, .content-container h2 {
+            margin-bottom: 20px;
+        }
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            background-color: #ddd;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #888;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="password"], input[type="number"], input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .back-button {
+            width: auto;
+            padding: 5px 10px;
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 0;
+            text-align: left;
+        }
+        .back-button:hover {
+            background-color: #5a6268;
+        }
+        .options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .options a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .menu-container button {
+            width: 100%;
+            margin: 5px 0;
+        }
+        .content-container {
+            display: none;
+        }
+        .content-container.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container login-container" id="login-container">
+        <div class="profile-pic">+</div>
+        <h1>Controle de Estoque</h1>
+        <h2>Login</h2>
+        <div class="form-group">
+            <label for="usuario">Usuário</label>
+            <input type="text" id="usuario" name="usuario">
+        </div>
+        <div class="form-group">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha">
+        </div>
+        <button onclick="entrar()">Entrar</button>
+        <div class="options">
+            <a href="#">Esqueci a Senha</a>
+            <a href="#">Cadastrar</a>
+        </div>
+    </div>
+
+    <div class="container menu-container" id="menu-container" style="display: none;">
+        <h1>Menu Principal</h1>
+        <button onclick="showContent('estoque')">Estoque</button>
+        <button onclick="showContent('desempenho')">Desempenho</button>
+        <button onclick="showContent('previsao')">Previsão</button>
+        <button onclick="showContent('alertas')">Alertas</button>
+        <button onclick="showContent('reposicao')">Reposição</button>
+        <button onclick="showContent('dashboard')">Dashboard</button>
+    </div>
+
+    <div class="container content-container" id="estoque">
+        <button class="back-button" onclick="showMenu()">Voltar</button>
+        <h2>Estoque</h2>
+        <!-- Conteúdo da seção Estoque -->
+        <p>Informações de Estoque...</p>
+    </div>
+    <div class="container content-container" id="desempenho">
+        <button class="back-button" onclick="showMenu()">Voltar</button>
+        <h2>Desempenho</h2>
+        <!-- Conteúdo da seção Desempenho -->
+        <p>Informações de Desempenho...</p>
+    </div>
+    <div class="container content-container" id="previsao">
+        <button class="back-button" onclick="showMenu()">Voltar</button>
+        <h2>Previsão</h2>
+        <!-- Conteúdo da seção Previsão -->
+        <p>Informações de Previsão...</p>
+    </div>
+    <div class="container content-container" id="alertas">
+        <button class="back-button" onclick="showMenu()">Voltar</button>
+        <h2>Alertas</h2>
+        <!-- Conteúdo da seção Alertas -->
+        <p>Informações de Alertas...</p>
+    </div>
+    <div class="container content-container" id="reposicao">
+        <button class="back-button" onclick="showMenu()">Voltar</button>
+        <h2>Reposição</h2>
+        <!-- Conteúdo da seção Reposição -->
+        <p>Informações de Reposição...</p>
+    </div>
+    <div class="container content-container" id="dashboard">
+        <button class="back-button" onclick="showMenu()">Voltar</button>
+        <h2>Dashboard</h2>
+        <!-- Conteúdo da seção Dashboard -->
+        <p>Informações de Dashboard...</p>
+    </div>
+
+    <script>
+        function entrar() {
+            const usuario = document.getElementById('usuario').value;
+            const senha = document.getElementById('senha').value;
+
+            if (usuario === 'admin' && senha === 'admin') {
+                document.getElementById('login-container').style.display = 'none';
+                document.getElementById('menu-container').style.display = 'block';
+            } else {
+                alert('Usuário ou senha incorretos');
+            }
+        }
+
+        function showContent(sectionId) {
+            const sections = document.querySelectorAll('.content-container');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+            document.getElementById('menu-container').style.display = 'none';
+        }
+
+        function showMenu() {
+            const sections = document.querySelectorAll('.content-container');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById('menu-container').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
