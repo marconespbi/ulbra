@@ -3,41 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Controle de Estoque </title>
+    <title>Controle de Estoque</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f8f9fa;
+            background: linear-gradient(to bottom, #5f5dc7, #6f82b6, #1a5697);
+            background-repeat: no-repeat;
+            background-size: cover;
         }
+        
+           
         .container {
             width: 100%;
             max-width: 400px;
             padding: 20px;
-            background-color: #ffffff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
             text-align: center;
+         
+            
+        }
+        .container h1, .container h2{
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            color: #000;
         }
         .login-container h1, .menu-container h1, .content-container h2 {
             margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+        
         }
         .profile-pic {
-            width: 100px;
-            height: 100px;
-            background-color: #ddd;
+            width: 350px;
+            height: 350px;
+            background-image: url('Imagens/OIG2.jpg');
+            background-size: cover;
             border-radius: 50%;
+            border: 5px solid #000000;
             margin: 0 auto 10px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 24px;
+            font-size: 35px;
             color: #888;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
         }
         .form-group {
             margin-bottom: 15px;
@@ -46,21 +62,25 @@
         label {
             display: block;
             margin-bottom: 5px;
+            text-align: center;
+            padding: 3px;
+            color: rgb(255, 255, 255);
         }
         input[type="text"], input[type="password"], input[type="number"], input[type="date"] {
             width: 100%;
             padding: 8px;
             box-sizing: border-box;
-            border: 1px solid #ced4da;
-            border-radius: 4px;
+            border: 2px solid #000000;
+            border-radius: 10px;
+            background-color: rgba(255,255,255, 0.5);
         }
         button {
-            width: 100%;
+            width: 30%;
             padding: 10px;
-            background-color: #007BFF;
+            background: linear-gradient(to bottom, #007BFF, #033366);
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 10px;
             cursor: pointer;
             font-size: 16px;
             margin-top: 10px;
@@ -85,12 +105,24 @@
         }
         .options {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             margin-top: 10px;
+            text-align: center;
         }
         .options a {
             text-decoration: none;
-            color: #007BFF;
+            color: #ffffff;
+            text-align: center;
+        }
+        .options ul{
+            padding:0;
+            list-style-type: none;
+            text-align: center;
+        }
+        .options ul li{
+            margin-bottom: 10px;
+            text-align: center;
+            padding: center;
         }
         .menu-container button {
             width: 100%;
@@ -102,25 +134,80 @@
         .content-container.active {
             display: block;
         }
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            color: white;        }
+        
+        .content-container.active {
+            display: block;
+        }
+        .top-bar {
+            width: 100%;
+            padding: 10px;
+            background-color: #073261;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            border-radius: 5px 5px 0 0;
+        }
+        .filter-container {
+            margin: 20px 0;
+        }
+        .filter-container label, .filter-container input {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            border-radius: 6px;
+        }
+        table, th, td {
+            border: 2px solid #ced4da;
+            border-radius: 1px;
+            background-color: white;
+            border-radius: 6px;
+            
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            background-color: white;
+            border-radius: 6px;
+           
+        }
+        th {
+            background-color: #f8f9fa;
+        }
     </style>
 </head>
 <body>
     <div class="container login-container" id="login-container">
-        <div class="profile-pic">+</div>
+        <div class="profile-pic"></div>
         <h1>Controle de Estoque</h1>
-        <h2>Login</h2>
         <div class="form-group">
-            <label for="usuario">Usuário</label>
+            <label for="usuario"><b>Usuário</b></label>
             <input type="text" id="usuario" name="usuario">
         </div>
         <div class="form-group">
-            <label for="senha">Senha</label>
+            <label for="senha"><b>Senha</b></label>
             <input type="password" id="senha" name="senha">
         </div>
-        <button onclick="entrar()">Entrar</button>
+        <button onclick="entrar()"><b>Entrar</b></button>
         <div class="options">
-            <a href="#">Esqueci a Senha</a>
-            <a href="#">Cadastrar</a>
+            <ul>
+                <li><a href="#"><b>Esqueci a Senha</b></a></li>
+                <li><a href="#"><b>Cadastrar</b></a></li>
+            </ul>
+        </div>
         </div>
     </div>
 
@@ -134,11 +221,77 @@
         <button onclick="showContent('dashboard')">Dashboard</button>
     </div>
 
-    <div class="container content-container" id="estoque">
+    <div class="top-bar">
         <button class="back-button" onclick="showMenu()">Voltar</button>
-        <h2>Estoque</h2>
-        <!-- Conteúdo da seção Estoque -->
-        <p>Informações de Estoque...</p>
+    </div>
+
+    <div class="container content-container" id="estoque">
+        <h1>Estoque</h1>
+        <div class="filter-container">
+            <label for="filter">Filtro:</label>
+            <input type="text" id="filter" onkeyup="filterTable()">
+        </div>
+        <table id="estoqueTable">
+            <thead>
+                <tr>
+                    <th>Categoria</th>
+                    <th>Fornecedor</th>
+                    <th>Quantidade (un)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Categoria A</td>
+                    <td>152486</td>
+                    <td>560 </td>
+                </tr>
+                <tr>
+                    <td>Categoria B</td>
+                    <td>475869</td>
+                    <td>300</td>
+                </tr>
+                <tr>
+                    <td>Categoria C</td>
+                    <td>205698</td>
+                    <td>250</td>
+                </tr>
+                <tr>
+                    <td>Categoria D</td>
+                    <td>402573</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Categoria E</td>
+                    <td>608524</td>
+                    <td>2500</td>
+                </tr>
+                <tr>
+                    <td>Categoria F</td>
+                    <td>708164</td>
+                    <td>350</td>
+                </tr>
+                <tr>
+                    <td>Categoria G</td>
+                    <td>805643</td>
+                    <td>450</td>
+                </tr>
+                <tr>
+                    <td>Categoria H</td>
+                    <td>905468</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Produto I</td>
+                    <td>1008925</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>Produto J</td>
+                    <td>1104545</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <div class="container content-container" id="desempenho">
         <button class="back-button" onclick="showMenu()">Voltar</button>
@@ -170,6 +323,10 @@
         <!-- Conteúdo da seção Dashboard -->
         <p>Informações de Dashboard...</p>
     </div>
+
+    <footer><b>
+        Versão 1.0-2024 </b>
+    </footer>
 
     <script>
         function entrar() {
