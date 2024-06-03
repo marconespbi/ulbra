@@ -294,16 +294,146 @@
         </table>
     </div>
     <div class="container content-container" id="desempenho">
-        <button class="back-button" onclick="showMenu()">Voltar</button>
+        
         <h2>Desempenho</h2>
+        <div class="filter-container">
+            <label for="filter">Filtro:</label>
+            <input type="text" id="filter" onkeyup="filterTable()">
+        </div>
+        <table id="estoqueTable">
+            <thead>
+                <tr>
+                    <th>Quantidade (un)</th>
+                    <th>Meta</th>
+                    <th>Gastos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>560</td>
+                    <td>600</td>
+                    <td>420</td>
+                </tr>
+                <tr>
+                    <td>300</td>
+                    <td>410</td>
+                    <td>295</td>
+                </tr>
+                <tr>
+                    <td>250</td>
+                    <td>295</td>
+                    <td>210</td>
+                </tr>
+                <tr>
+                    <td>100</td>
+                    <td>150</td>
+                    <td>90</td>
+                </tr>
+                <tr>
+                    <td>2500</td>
+                    <td>2800</td>
+                    <td>2450</td>
+                </tr>
+                <tr>
+                    <td>350</td>
+                    <td>400</td>
+                    <td>320</td>
+                </tr>
+                <tr>
+                    <td>450</td>
+                    <td>500</td>
+                    <td>480</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>5</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>20</td>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>3</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
         <!-- Conteúdo da seção Desempenho -->
-        <p>Informações de Desempenho...</p>
+        
     </div>
     <div class="container content-container" id="previsao">
         <button class="back-button" onclick="showMenu()">Voltar</button>
         <h2>Previsão</h2>
+        <div class="filter-container">
+            <label for="filter">Filtro:</label>
+            <input type="text" id="filter" onkeyup="filterTable()">
+        </div>
+        <table id="estoqueTable">
+            <thead>
+                <tr>
+                    <th>Quantidade (un)</th>
+                    <th>Valor</th>
+                    <th>Data prevista</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>40</td>
+                    <td>$1500,00</td>
+                    <td>10/07/2024</td>
+                </tr>
+                <tr>
+                    <td>110</td>
+                    <td>$4100,00</td>
+                    <td>10/07/2024</td>
+                </tr>
+                <tr>
+                    <td>45</td>
+                    <td>$2955,00</td>
+                    <td>21/07/2024</td>
+                </tr>
+                <tr>
+                    <td>50</td>
+                    <td>$1500,00</td>
+                    <td>09/07/2024</td>
+                </tr>
+                <tr>
+                    <td>300</td>
+                    <td>$2800,00</td>
+                    <td>24/06/2024</td>
+                </tr>
+                <tr>
+                    <td>50</td>
+                    <td>$400,00</td>
+                    <td>03/07/2024</td>
+                </tr>
+                <tr>
+                    <td>50</td>
+                    <td>$500,00</td>
+                    <td>08/06/2024</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>$6000,00</td>
+                    <td>03/07/2024</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>$2000,00</td>
+                    <td>17/06/2024</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>$3000,00</td>
+                    <td>10/06/2024</td>
+                </tr>
+            </tbody>
+        </table>
         <!-- Conteúdo da seção Previsão -->
-        <p>Informações de Previsão...</p>
+        
     </div>
     <div class="container content-container" id="alertas">
         <button class="back-button" onclick="showMenu()">Voltar</button>
